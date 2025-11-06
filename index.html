@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para ti, mi amor 💌</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="/Bootstrap/css/bootstrap.min.css">
+
+  <style>
+    :root {
+      --accent: #ff4b6e;
+    }
+
+    body {
+      background: radial-gradient(circle at center, #111 0%, #000 100%);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Estrellas */
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: twinkle 3s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    /* Luna */
+    .moon {
+      position: absolute;
+      top: 5vw;
+      left: 5vw;
+      width: 18vw;
+      height: 18vw;
+      max-width: 140px;
+      max-height: 140px;
+      background: radial-gradient(circle at 30% 30%, #fff 60%, #e6e6e6 80%, #cfcfcf 100%);
+      border-radius: 50%;
+      box-shadow: 0 0 40px rgba(255,255,255,0.4);
+      z-index: 1;
+      animation: moonGlow 6s ease-in-out infinite alternate;
+    }
+
+    .moon::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 3vw;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #111 60%, #000 100%);
+      opacity: 0.4;
+      filter: blur(3px);
+    }
+
+    @keyframes moonGlow {
+      from { box-shadow: 0 0 20px rgba(255,255,255,0.3); }
+      to   { box-shadow: 0 0 45px rgba(255,255,255,0.6); }
+    }
+
+    /* Card del mensaje */
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+      color: #fff;
+      z-index: 2;
+    }
+
+    #text {
+      white-space: pre-line;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    footer {
+      font-size: 0.8rem;
+      color: #aaa;
+      margin-top: 1rem;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars" id="stars"></div>
+  <div class="moon"></div>
+
+  <div class="container text-center py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card p-4 p-md-5 rounded-4">
+          <h1 class="text-danger mb-4">Para ti, Camila 🌙</h1>
+          <p id="text" class="text-light"></p>
+          <button id="playBtn" class="btn btn-outline-danger mt-4 px-4 py-2 rounded-pill">
+            🎵 Reproducir música
+          </button>
+        </div>
+        <footer class="mt-4">Con todo mi amor, Jose Antonio Peñalver Hernandez ❤️</footer>
+      </div>
+    </div>
+  </div>
+
+  <audio id="music" loop>
+    <source src="musica/TekIt.mp3" type="audio/mp3">
+  </audio>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script>
+    // estrellas dinámicas
+    const starsContainer = document.getElementById('stars');
+    for (let i = 0; i < 80; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.width = star.style.height = Math.random() * 2 + 'px';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.animationDelay = Math.random() * 3 + 's';
+      starsContainer.appendChild(star);
+    }
+
+    // texto poético
+const message = `Este es un mensaje que Jose Antonio quiere darte, Camila, 
+dejando de lado los problemas que hemos tenido, las risas que hemos tenido y incluso los momentos en silencio, 
+trabajando ambos, chismoseando siempre que podemos
+
+Queria decirte que ha sido un mes divertido, pudo ser estresante al inicio, ambos teniamos cosas que hacer tu trasnochabas mucho, y eso me ponia a pensar, pero.. poco a poco lo voy entendiendo mas. 
+
+Aunque ya te lo he dicho en el mensaje de esta mañana, queria decirtelo otra vez.. y es que no me voy a rendir nunca, no solo por mi.  si no tambien por ti, eres una de las razones por las que sigo mirando desde arriba y al frente,  por lo que sigo creciendo como persona y intento ser siempre mas comprensivo, tratando de mejorar como persona y como.. pareja. 
+
+Esta es nuestra historia, historia que estamos forjando, hasta llegar al sueño tan bonito que tuve, quiero esperar esa boda como si fuera el mejor dia de mi vida, que lo sera. Aun asi, me gustaria.. pedirte paciencia, porque la necesitaremos jsjsjs En el fondo, me alegra.. que nos peleemos, y preguntaras, porque? Una relacion no puede ser duradera si es perfecta, porque el dia que tengan una pelea, ninguno sabra como llevarlo, no es malo discutir o pelear, es la mejor manera de entender a la otra parte. Deseo desde el fondo de mi corazon, tomar tu mano, avanzar hasta el final de mi historia, quiero.. vivir, reir y estar contigo, por una eternidad. 
+
+Con todo mi amor, — Jose Antonio ❤️`;
+
+    const textEl = document.getElementById('text');
+    const music = document.getElementById('music');
+    const playBtn = document.getElementById('playBtn');
+    let index = 0;
+    let typingInterval;
+    let playing = false;
+
+    function typeWriter() {
+      if (index < message.length) {
+        textEl.textContent += message.charAt(index);
+        index++;
+      } else {
+        clearInterval(typingInterval);
+      }
+    }
+
+    playBtn.addEventListener('click', () => {
+      if (!playing) {
+        music.play();
+        textEl.textContent = '';
+        textEl.style.opacity = 1;
+        index = 0;
+        typingInterval = setInterval(typeWriter, 45);
+        playBtn.innerHTML = '⏸️ Pausar música';
+        playing = true;
+      } else {
+        music.pause();
+        clearInterval(typingInterval);
+        playBtn.innerHTML = '🎵 Reproducir música';
+        playing = false;
+      }
+    });
+  </script>
+</body>
+</html>
